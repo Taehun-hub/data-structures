@@ -1,4 +1,2 @@
 ﻿# data-structures
-# data-structures
 
-list 자료 구조 공부한 내용~~~
