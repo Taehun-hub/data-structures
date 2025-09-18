@@ -50,13 +50,14 @@ STACK : LIFO(Last In First Out)
 Queue : FIFO(First In First Out) 
 - 1,2,3,4,5 순으로 들어오면 1,2,3,4,5 순으로 나간다
 Deque : stack + Queue
-- 두개 다 가능 
-- Stack ex1에서 코드 구현 보기 가능
+- 두개 다 가능
 
 3.linked List(연결 리스트)
 -저장된 곳에 그 다음곳의 주소까지 같이 저장
 -인덱스 접근 X
 
+[Stack]
+- Stack ex1에서 코드 
  # data-structures 3주차
 스택 예제 2 : 계산기 코드
 ex) 2+3*5 --> 피연산자(2,3,5) / 연산자(+,*) 모두를 token 토큰이라 함 
@@ -80,3 +81,15 @@ infix-->postfix
 2.연산자는 스택 사용
 
 총과정 infix -> postfix -> 계산
+
+[Queue]
+큐(queue): FIFO(First-In First-Out) 규칙의 순차적 자료구조
+
+         stack  | queue
+insert | push   | enqueue
+delete | pop    | dequeue 
+
+Queue Ex1 Josephus problem
+설명:  n= 사람의 수 k는 몇번째 사람인지를 지정
+만약 n=5 k=2일 경우 1/2/3/4/5 에서 2번째인 2 삭제 -> 4삭제 -> 1삭제 -> 5삭제순으로 진행
+
