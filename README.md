@@ -58,7 +58,7 @@ Deque : stack + Queue
 
 [Stack]
 - Stack ex1에서 코드 
- # data-structures 3주차
+# data-structures 3주차
 스택 예제 2 : 계산기 코드
 ex) 2+3*5 --> 피연산자(2,3,5) / 연산자(+,*) 모두를 token 토큰이라 함 
 이항연산자: 2+3/3*5 처럼 항 두개를 요구
@@ -92,4 +92,22 @@ delete | pop    | dequeue
 Queue Ex1 Josephus problem
 설명:  n= 사람의 수 k는 몇번째 사람인지를 지정
 만약 n=5 k=2일 경우 1/2/3/4/5 에서 2번째인 2 삭제 -> 4삭제 -> 1삭제 -> 5삭제순으로 진행
+
+# data-structures 4주차
+연결리스트(linked List) - 한방향 vs 양방향
+배열 A [0,1,2,3]
+    A[i]  
+
+연결리스트 [3] -> [9] -> [-1] -> [2] -> None
+    실제 data값(key)+ link =node 
+가장 처음 노드를 헤드노드 
+장점: insert해줄때 하나씩 미룰 거 없이 link만 바꿔주면됨(단 전 노드와 후 노드를 알고있어야함)
+단점: 뒤에꺼를 찾을때 상수시간내 하지 못함
+
+한방향:  (key 1개, link 1개)
+PushFront,PopFront=O(1), PopBack,PushBack=O(n) 
+한방향연결리스트 추가연산: 탐색(search)+제너레이터(generator)
+yield가 있는 함수는 제너레이터  yield=return 연결리스트에서 for문 사용가능
+양방햔:  (key 1개, link 2개)
+
 
