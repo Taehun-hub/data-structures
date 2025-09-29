@@ -110,4 +110,81 @@ PushFront,PopFront=O(1), PopBack,PushBack=O(n)
 yield가 있는 함수는 제너레이터  yield=return 연결리스트에서 for문 사용가능
 양방햔:  (key 1개, link 2개)
 
+# data-structures 5주차
+양방향 연결리스트: 한반향 연결리스트에서 tail값 삭제시 하나하나 올라가야 하는 귀찮음을 제거 앞 뒤로 두게의 링크를 가지고 있음
+원형 양방향 연결리스트: tail node가 head node를 연결 head node가 왼쪽 링크일때 tail node를 연결
+원형 연결 리스트의 빈리스트는 None이 아닌 더미 노드 더미노트의 키는 None NEXT,PREV 다 자기자신
 
+splice 연산
+이동연산
+-moveAfter(self,a,x)
+    노드 a를 노드 다음으로 이동
+    splice(a,a,x)
+-moveBefore(a,x)
+    a를 x 전으로 이돋
+    splice(a,a,x.prev)
+-insertAfter(x,key)
+    moveAfter(Node(key),x)
+-insertBefore(x,key)
+    moveBefore(Node(key),x)
+-pushFront(key)
+    insertAfter(self.head,key)
+-pushBack(key)
+    insertBefore(self.head,key)
+
+탐색연산
+def search(self,key):
+    v=self.head #더미 데이터
+    while v.next != self.head:
+        if v.key==key:
+            return v
+        v=v.next
+    return None
+
+삭제연산
+def remove(x):
+    if x==None or X== self.head:
+        return
+    x.prev.next=x.next
+    x.next.prev=x.prev
+
+join,split등등 존재
+
+연결리스트 노드의 소요 시간
+search(key): O(n)
+splice(a,b,x): 6개 링크 수정 O(1)
+move After.Before(a,x): O(1)
+insert After/Before(x,key): O(1)
+push Fornt/Back(key): O(1)
+reomve(x): O(1)
+
+해시 테이블(Hash Table): 매우 빠른 평균 삽입,삭제,탐색연산 제공
+----원래의 방법----
+dictionary 
+D={} (key,values)
+키 값이 문자열이든 정수든 상관 X
+values 여러개 저장 가능
+----해쉬----
+if 키값이 20213045일 경우 10으로 나눠 나머지인 5 5번째 인덱스에 저장
+key ---mapping(f(key))--> index
+
+collision resolution 충돌
+
+1.Table: List
+2. Hash function
+3. collision resolution method
+
+해시함수 H에 있는 저장 공간m slot 보통 2의몇승 이런 형태로 가짐
+나머지 연산으로 하는 해쉬함수 =division  hash func
+f(k)=(k%p)%m p는 소수
+
+하나씩 매핑 되는 해시함수: perfect h,f = ideal h.f 비현실적
+key---1:1--->slot
+실제로 많이 쓰이는 유형 :c-universal h.f
+f(x)==f(y) =c/m   c=1보다 크거나 같은 상수값
+
+folding,mid-square,extraction등등 존재
+
+key: string
+Additive 
+Rotating
