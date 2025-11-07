@@ -188,3 +188,63 @@ folding,mid-square,extraction등등 존재
 key: string
 Additive 
 Rotating
+
+# data-structures 6주차
+충돌 회피 방법(collision resolution method)
+-open addressing: linear probing/quadratic probing/ double hashing
+linear probing: 충돌이 일어났을 경우 빈칸이 나올때까지 한칸씩 밑으로 (9->0)
+cluster은 적어야함
+
+-chaining
+set(key,value=None):
+1.key값이 H에 있으면 value를  update
+2.key값이 H에 없으면 (keyy, value)을 insert
+
+remove(key)
+1.key 값이 H에 없으면 → 아무 일도 하지 않음 (return None)
+2.key 값이 H에 있으면 → 해당 슬롯을 삭제
+
+search(key)
+1.key 값이 H에 있으면 → 해당 value 리턴
+2.key 값이 H에 없으면 → None 리턴
+
+find-slot(key):#.key값이 H에 있으면 slot번호 리턴
+    i=f(key)   #.key값이 없다면 key값이 삽입될 slot 번호 리턴
+    start=i
+    while(H[i]==occupied)andH[i].key !=key)
+        i=(i+1)%m
+        if i==start: return Full
+set(key,value=None);
+    i=find-slot(key)
+    if i == Full: #H를 키워야함  return None
+    if H[i].is occupied:
+        H[i].value=value
+    else:
+        H[i].key,H[i].value=key.value
+    return key
+remove(key):
+i=find-slot(key)
+if H[i]is unoccupied:return None
+j=i ### H[i]:빈 slot, H[j]:이사해야 할 slot
+while True:
+    H[i]=None
+    while True: ###H[j]찾기
+    j=(j+1)%m
+    if H[j] is unoccupied: return key
+    k=f(H[j].key)
+    if(k<i<=-j): break
+    H[i]=h[j]
+    i=j
+
+quadratic probing: 제곱
+
+트리계층적인 관계를 표현
+
+노드(node): 데이터를 저장하는 기본 단위
+링크(link) 또는 간선(edge): 노드 간의 연결선
+루트 노드(root): 트리의 가장 위에 있는 시작 노드
+부모 노드(parent): 어떤 노드를 가리키는 노드
+자식 노드(child): 부모에게서 내려오는 노드
+리프 노드(leaf): 더 이상 자식이 없는 끝 노드
+형제 노드(sibling): 같은 부모를 가진 노드들
+![img_1.png](img_1.png)
