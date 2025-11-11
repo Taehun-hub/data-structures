@@ -244,7 +244,63 @@ quadratic probing: 제곱
 링크(link) 또는 간선(edge): 노드 간의 연결선
 루트 노드(root): 트리의 가장 위에 있는 시작 노드
 부모 노드(parent): 어떤 노드를 가리키는 노드
-자식 노드(child): 부모에게서 내려오는 노드
+자식 노드(child): 부모에게서 내려오는 노드 
 리프 노드(leaf): 더 이상 자식이 없는 끝 노드
 형제 노드(sibling): 같은 부모를 가진 노드들
 ![img_1.png](img_1.png)
+
+# data-structures 7주차
+
+![img_2.png](img_2.png)
+장점: 상수시간내 부모노드 자식노드 계산 가능
+단점: 메모리 낭비
+
+힙(heap): 힙성질(heap property)만족하는 이진트리
+힙성질: 모든 부모노드의 key값은 자식노드의 key값보다 작지 않다 
+1.모양: 힙은 완전이진트리여야 한다. 
+(즉, 위에서부터 아래로, 왼쪽에서 오른쪽으로 차례대로 채워지며 마지막 레벨만 일부 비어 있을 수 있다.)
+2.heap
+루트 노드: 가장 큰값 
+제공연산: insert(O(log n),find-max: return A[0](O(1),delete-max(O(log n)
+
+make-heap: heapify-down
+배열의 순서를 A[x*2+1],A[x*2+2]으로 상수시간내 heap형태로 바꾸는것
+make_heap(A):
+    n=len(A)
+    for k in range(n-1,-1,-1):
+    # A[k]->heap 성질 만족하는 곳으로
+    heapify_down(k,n)
+heapify_down(k,n):
+# A[k],n값
+    while A[k] !=leafnode:
+        L,R=2*k+1,2*k+2
+        m=index(A[k],A[c],A[R])
+        if k!=m:
+            A[k] <->A[m]
+            k=m
+        else:
+            break
+
+n개노드 : 힙의 높이 h
+![img_3.png](img_3.png)
+
+insert 연산
+heap성분을 만족하고 있을때 insert를 할경우 자리바꿈을 해줘야함 -> heapify_up(k) #A[k]를 root방향으로 이동하면서 heapify k=인덱스 번호 
+
+heapify(k): #A[k]를 heapify
+    while k>0 and A[(k-1)//2] < A[k]:
+        A[k],A[(k-1)//2]=A[(k-1)//2],A[k]
+        k=(k-1)//2
+
+find_max:
+    returnA[0]
+ 
+delete_max:
+    if len(A)==0: return None
+    key=A[0]
+    A[0],A[len(A)-1]=A[len(A)-1],A[0]
+    A.pop()
+    heapify_down(0,len(A))
+    return key
+
+![img_4.png](img_4.png)
