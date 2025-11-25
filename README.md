@@ -304,3 +304,126 @@ delete_max:
     return key
 
 ![img_4.png](img_4.png)
+
+# data-structures 8주차
+표현법1
+이진트리 -> 배열,리스트
+ex)heap
+
+순회(traversal): 이진트리 노드의 key값을 빠짐없이 출력하는 방법
+preorder,inorder,postorder
+![img_6.png](img_6.png)
+preorder: M->L->R
+inorder: L->M->R
+postorder: L->R->M
+![img_7.png](img_7.png)
+![img_8.png](img_8.png)
+
+class Node:
+    def __init__():
+    
+    def preorder(self):
+        if self!=None:
+            print(self.key)
+            if self.left:
+                self.left.preorder()
+            if self.right:
+                self.right.preorder()
+pre<->in<->post를 바꿔 다른것도 사용 가능
+
+![img_9.png](img_9.png)
+
+표현법3
+노드와 링크 직접
+![img_5.png](img_5.png)
+class Node:
+    def __init__(self,key):
+        self.key=key
+        self.parent=self.left=self.right-None
+
+    def __str__(self):
+        return str(self.key)
+
+a=Node(6)
+b=Node(9)
+c=Node(1)
+d=Node(5)
+
+a.left=b
+a.right=c
+b.parent=c.parent=a
+b.right=d
+d.parent=b
+
+이진탐색트리(Binary Search Tree): BST
+각 노드의 왼쪽 subtree의 key값은 노드의 key값보다 작거나 같아야하고 오른쪽 subtree의 key값은 노드의 key값보다 커야한다
+
+class BST:
+    def __init__(self):
+        self.root=None
+        self.size=0
+    def __len__(self):
+        return self.size
+    def __iter__(self):
+        return self.root.__iter__()
+
+search
+def find-loc(self,key): #key값 노드가 있다면 해당노드 return 없다면 노드가 삽입될 부모노드 리턴
+    if self.size==0;
+        return None
+    p=None
+    v=self.root
+    while v !=None:
+        if v.key==key:
+            return v
+        elif v.key<key:
+            p=v
+            v=v.right
+        else:
+            p=v
+            v=v.left
+    return p
+
+search(self.key):
+    r=self.find-loc(key)
+    if v==None
+        return None
+    else:
+        return v
+
+삭제연산(delete): seleteByMerging,deleteByCopying
+deleteByMerging(self,x) #노드 X를 삭제
+![img_10.png](img_10.png)
+1. a==None  a!=None
+
+deleteByMerging(self,x):
+    a=x.left
+    b=x.right
+    pt=x.parent
+    c=x 자리를 대체할 노드
+    m=L에서 가장 큰 노드
+    if a!=None:
+        c=a
+        m=a
+        while m.right:
+            m=m.right
+        if b!=None:
+            b.parent=m
+        m.right=b
+    else : #a==None
+        c=b
+        
+    if pt != None:
+        if c: c.parent=pt
+        if pt.key < c.key:
+            pt.right=c
+        else
+            pt.left=c
+
+    else:  pt==None
+            root=x
+        self.root=c
+        if c: c.parent=None
+    self.size-=1
+    return
+
