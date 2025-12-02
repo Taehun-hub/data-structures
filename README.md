@@ -427,3 +427,46 @@ deleteByMerging(self,x):
     self.size-=1
     return
 
+# data-structures 9주차
+균형이진탐색트리(Balanced BST) == O(log n)
+1.AVL트리
+2.Red-Black
+3.(2,3,4)-tree
+4.splay tree
+
+![img_11.png](img_11.png)
+
+def rotateRight(self,z):
+    if not z: return
+    x=z.left
+    if x--None:return
+    b=x.rught
+    x.parent=z.parent
+    if z.parent:
+        if z.parent.left==z:
+            z.parent.left=x
+        else:
+            z.parent.right=x
+    x.right=z
+    z.parent=x
+    z.left=b
+    if b: b.parent=z
+    if self.root==z:
+        self.root=x
+
+AVL트리(Adelson-Velsky,Landis)
+모든 노드에 대해서 노드의 왼쪽부트리와 오른쪽부트리의 높이차가 1이하인 BST
+
+![img_13.png](img_13.png)
+
+AVL트리: 자식부트리의 높이 차 <=1
+
+class Node : BST 동일
+class BST: 사용 insert,delete,ByMerging,By copying,search
+class AVL(BST):
+    def __init__ x
+    def insert(self,key):
+    v=super(AVL,self).insert(key)
+    rebalance(x,y,z)
+
+![img_14.png](img_14.png)
