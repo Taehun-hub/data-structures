@@ -470,3 +470,58 @@ class AVL(BST):
     rebalance(x,y,z)
 
 ![img_14.png](img_14.png)
+
+# data-structures 10주차
+AVL tree delete연산
+insert: 1.1회 로테이션 2. 2회 로테이션
+delete: W.c O(log n)로테이션
+
+delete(self,u):
+    v=super(AVL,self).delete ByCopying(u)
+    while v!=None:
+        if v is not balanced:
+            z=v
+            if z.left.height>=z.right.height:
+                y=z.left
+            else
+                y=z.right
+            if y.left.height>=y.right.height:
+                x=y.left
+            else
+                x=y.right
+            v=rebalance(x,y,z)
+            w=v
+            v=v.parent
+
+
+AVL 트리 정리
+높이: <= 2log n = O(log n)
+insert:노드 삽입: O(log n)
+       reblance: 1회/2회 회전
+
+delete: 노드 제거 O(log n)
+        rebalane: 매 level에서 O(log n)회전 O(log n)
+
+
+Red-Black: 가장 유명하고 많이 사용돠는 균형이진탐색트리
+
+Null Node= leaf
+나머지 Node=내부노드
+
+1.node= red/Black
+2.root node= black
+3.leaf Node= black
+4.red Node의 child node=black
+5.각 노드의 leaf node의블랙수는 같아아햔다
+
+h(v)=v의 높이(height)
+bh(v)=v->leaf node v를 제외: black node개수
+
+![img_19.png](img_19.png)
+![img_20.png](img_20.png)
+![img_21.png](img_21.png)
+
+사실2: black 노드 수 >= h/2
+r의 subtree의 내부노드 갯수
+n>= red-blacktree의 노드의 갯수
+h=O(log 2 n)
