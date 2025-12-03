@@ -469,39 +469,4 @@ class AVL(BST):
     v=super(AVL,self).insert(key)
     rebalance(x,y,z)
 
-
 ![img_14.png](img_14.png)
-
-# data-structures 10주차
-AVL tree delete연산
-insert: 1.1회 로테이션 2. 2회 로테이션
-delete: W.c O(log n)로테이션
-
-delete(self,u):
-    v=super(AVL,self).delete ByCopying(u)
-    while v!=None:
-        if v is not balanced:
-            z=v
-            if z.left.height>=z.right.height:
-                y=z.left
-            else
-                y=z.right
-            if y.left.height>=y.right.height:
-                x=y.left
-            else
-                x=y.right
-            v=rebalance(x,y,z)
-            w=v
-            v=v.parent
-
-
-AVL 트리 정리
-높이: <= 2log n = O(log n)
-insert:노드 삽입: O(log n)
-       reblance: 1회/2회 회전
-
-delete: 노드 제거 O(log n)
-        rebalane: 매 level에서 O(log n)회전 O(log n)
-
-
-Red-Black
